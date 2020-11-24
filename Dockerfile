@@ -33,7 +33,7 @@ RUN cd /home &&\
                        g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        mono-devel mono-runtime mono-vbnc perl python python3 \
-                       kumir2-tools &&\
+                       kumir2-tools net-tools &&\
     \
     locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
     wget -O freebasic.tar.gz "${URL_FREEBASIC}" &&\

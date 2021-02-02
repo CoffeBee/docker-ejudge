@@ -25,6 +25,7 @@ RUN cd /home &&\
     apt-get update &&\
     apt-get install -y software-properties-common &&\
     add-apt-repository "deb http://repos.lpm.org.ru/kumir2/ubuntu trusty universe" &&\
+    add-apt-repository ppa:deadsnakes/ppa &&\
     apt-get update &&\
     apt-get install -y --allow-unauthenticated \
                        wget locales ncurses-base libncurses-dev libncursesw5 \
@@ -32,9 +33,11 @@ RUN cd /home &&\
                        zlib1g-dev libelf-dev mysql-client-5.7 libmysqlclient-dev \
                        g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
-                       mono-devel mono-runtime mono-vbnc perl python python3 \
+                       mono-devel mono-runtime mono-vbnc perl python python3.8 \
                        kumir2-tools net-tools &&\
     \
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1&&\
+    update-alternatives --config python3 &&\
     locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
     wget -O freebasic.tar.gz "${URL_FREEBASIC}" &&\
     mkdir /opt/freebasic &&\
